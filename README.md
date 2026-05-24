@@ -1,6 +1,9 @@
 **Shortcode**: `reflex1337`
 **Numbered Shortcode**: `0401`
 
+The Reflex Repository is an English Repository with the focus of providing English speaking plugins through this Repository. You can also make pull requests for me to add plugins from your Repository to my Repository.
+
+
 
 **⚠️ This is currently under development, dont use it yet if you're not comfortable with constantly merging new changes**
 
