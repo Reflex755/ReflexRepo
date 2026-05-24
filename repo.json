@@ -1,1 +1,9 @@
-
+{
+    "name": "Reflex Repo",
+    "iconUrl": "https://static.wikia.nocookie.net/nicodougasingers/images/3/3c/Fukkireta_kasane_teto.gif/revision/latest?cb=20120212200425",
+    "description": "Reflex Repository",
+    "manifestVersion": 1,
+    "pluginLists": [
+      "https://raw.githubusercontent.com/Reflex755/ReflexRepo/refs/heads/builds/plugins.json"
+    ]
+}
