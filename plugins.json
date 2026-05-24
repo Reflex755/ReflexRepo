@@ -1,22 +1,21 @@
 [
     {
-        "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Korduene_Logo.png",
+        "iconUrl": "https://static.wikia.nocookie.net/nicodougasingers/images/3/3c/Fukkireta_kasane_teto.gif/revision/latest?cb=20120212200425",
         "apiVersion": 1,
-        "repositoryUrl": "https://github.com/recloudstream/TestPlugins",
+        "repositoryUrl": "https://github.com/Reflex755/ReflexRepo",
         "fileSize": 7311,
         "status": 1,
         "language": "en",
         "authors": [
-            "Cloudburst",
-            "Luna712"
+            "Reflex1337"
         ],
         "tvTypes": [
-            "Movie"
+            "All"
         ],
         "version": 1,
-        "internalName": "ExampleProvider",
-        "description": "Lorem ipsum",
-        "url": "https://raw.githubusercontent.com/recloudstream/TestPlugins/builds/ExampleProvider.cs3",
+        "internalName": "ReflexRepo",
+        "description": "#1 Best English Repo for Cloudstream!",
+        "url": "https://github.com/Reflex755/ReflexRepo/blob/builds/ExampleProvider.cs3",
         "name": "ExampleProvider"
     }
 ]
