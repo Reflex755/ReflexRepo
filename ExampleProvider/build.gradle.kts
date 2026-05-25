@@ -9,8 +9,8 @@ version = 1
 cloudstream {
     // All of these properties are optional, you can safely remove any of them.
 
-    description = "Lorem ipsum"
-    authors = listOf("Cloudburst", "Luna712")
+    description = "Discover and watch the latest movies and TV shows on BingeBox. Your ultimate streaming destination with contact support and box office data."
+    authors = listOf("Reflex1337")
 
     /**
     * Status int as one of the following:
@@ -27,7 +27,7 @@ cloudstream {
     language = "en"
 
     // Random CC logo I found
-    iconUrl = "https://upload.wikimedia.org/wikipedia/commons/2/2f/Korduene_Logo.png"
+    iconUrl = "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://bingebox.to/&size=256"
 }
 
 android {
