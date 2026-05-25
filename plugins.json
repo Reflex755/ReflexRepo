@@ -13,9 +13,9 @@
             "All"
         ],
         "version": 1,
-        "internalName": "ReflexRepo",
-        "description": "#1 Best English Repo for Cloudstream!",
+        "internalName": "Bingebox",
+        "description": "Discover and watch the latest movies and TV shows on BingeBox. Your ultimate streaming destination with contact support and box office data.",
         "url": "https://github.com/Reflex755/ReflexRepo/blob/builds/ExampleProvider.cs3",
-        "name": "ExampleProvider"
+        "name": "Bingebox"
     }
 ]
