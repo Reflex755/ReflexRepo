@@ -1,38 +1,26 @@
-dependencies {
-    implementation("com.google.android.material:material:1.12.0")
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
-}
-
-// Use an integer for version numbers
+// use an integer for version numbers
 version = 1
 
-cloudstream {
-    // All of these properties are optional, you can safely remove any of them.
 
-    description = "Discover and watch the latest movies and TV shows on BingeBox. Your ultimate streaming destination with contact support and box office data."
+cloudstream {
+    description = "Watch trending movies and TV shows online in one fast, modern streaming hub with smart search, watchlists, and seamless playback."
     authors = listOf("Reflex1337")
 
     /**
-    * Status int as one of the following:
+    * Status int as the following:
     * 0: Down
     * 1: Ok
     * 2: Slow
-    * 3: Beta-only
-    **/
-    status = 1 // Will be 3 if unspecified
+    * 3: Beta only
+    * */
+    status = 1 // will be 3 if unspecified
 
-    tvTypes = listOf("Movie")
-
-    requiresResources = true
+    tvTypes = listOf(
+        "Movie",
+        "TvSeries",
+    )
     language = "en"
+    iconUrl = "https://bingebox.to/favicon.svg?__WB_REVISION__=f341fd6cbda5b20b61e162c2ec35ae39"
 
-    // Random CC logo I found
-    iconUrl = "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://bingebox.to/&size=256"
-}
-
-android {
-    buildFeatures {
-        buildConfig = true
-        viewBinding = true
-    }
+    isCrossPlatform = false
 }
