@@ -35,5 +35,5 @@ cloudstream {
 
     requiresResources = true
 
-    iconUrl = "https://github.com/NivinCNC/CNCVerse-Cloud-Stream-Extension/raw/refs/heads/master/CNC%20Verse/icon.png"
+    iconUrl = "https://raw.githubusercontent.com/Reflex755/ReflexRepo/refs/heads/master/ReflexMirror/icon.png"
 }
