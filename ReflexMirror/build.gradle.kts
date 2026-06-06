@@ -35,5 +35,5 @@ cloudstream {
 
     requiresResources = false
 
-    iconUrl = "https://raw.githubusercontent.com/Reflex755/ReflexRepo/refs/heads/master/ReflexMirror/icon.png"
+    iconUrl = "https://raw.githubusercontent.com/Reflex755/ReflexRepo/refs/heads/master/Logos/ReflexMirror-icon.png"
 }
