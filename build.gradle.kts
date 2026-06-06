@@ -50,12 +50,12 @@ subprojects {
     cloudstream {
         // Fallback cascade: GitHub Actions
         setRepo(System.getenv("GITHUB_REPOSITORY") 
-            ?: "https://github.com/Reflex755/ReflexRepo" 
+            ?: "https://github.com/Reflex755/ReflexRepo")
         authors = listOf("Reflex1337")
     }
 
     android {
-        namespace = "com.reflex1337" // Update this per subproject if needed dynamically
+        namespace = "com.reflex1337" 
         compileSdk = 35
 
         defaultConfig {
