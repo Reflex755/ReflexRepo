@@ -1,0 +1,43 @@
+[
+    {
+        "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Korduene_Logo.png",
+        "fileHash": "sha256-01f793835cb3356236283b480fd58443a0d6a0602d11d81211a560fe18d8534b",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/Reflex755/ReflexRepo",
+        "fileSize": 3182,
+        "status": 0,
+        "language": "en",
+        "authors": [
+            "Template"
+        ],
+        "tvTypes": [
+            
+        ],
+        "version": -1,
+        "internalName": "ProviderTemplate",
+        "description": "Lorem ipsum",
+        "url": "https://raw.githubusercontent.com/Reflex755/ReflexRepo/builds/ProviderTemplate.cs3",
+        "name": "ProviderTemplate"
+    },
+    {
+        "iconUrl": "https://raw.githubusercontent.com/Reflex755/ReflexRepo/refs/heads/master/Logos/ReflexMirror-icon.png",
+        "fileHash": "sha256-54bb9ef80dc5f6cb7cc2bfc8a3b2df7a57b011e7ec821132654e1921871c8dde",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/Reflex755/ReflexRepo",
+        "fileSize": 57825,
+        "status": 1,
+        "language": "en",
+        "authors": [
+            "Reflex1337, NivinCNC"
+        ],
+        "tvTypes": [
+            "Movie",
+            "TvSeries"
+        ],
+        "version": 1,
+        "internalName": "ReflexMirror",
+        "description": "Netflix, PrimeVideo, Disney+ Hotstar Contents in Multiple Languages",
+        "url": "https://raw.githubusercontent.com/Reflex755/ReflexRepo/builds/ReflexMirror.cs3",
+        "name": "ReflexMirror"
+    }
+]
