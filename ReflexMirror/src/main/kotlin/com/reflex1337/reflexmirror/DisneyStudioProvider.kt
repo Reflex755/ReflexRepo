@@ -43,7 +43,7 @@ open class DisneyStudioProvider(
         "Sec-Fetch-Site" to "same-origin",
         "Sec-Fetch-User" to "?1",
         "Upgrade-Insecure-Requests" to "1",
-        "User-Agent" to "Mozilla/5.0 (Linux; Android 13; Pixel 5 Build/TQ3A.230901.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/144.0.7559.132 Safari/537.36 /OS.Gatu v3.0",
+        "User-Agent" to "Mozilla/5.0 (Linux; Android 13; Pixel 5 Build/TQ3A.230901.001; wv) AppleWebKit/537.36 (KHTML, Gecko) Version/4.0 Chrome/144.0.7559.132 Safari/537.36 /OS.Gatu v3.0",
         "X-Requested-With" to "XMLHttpRequest"
     )
 
@@ -60,8 +60,6 @@ open class DisneyStudioProvider(
     }
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse? {
-        // Show star popup on first visit (shared across all reflexmirror plugins)
-
         cookie_value = if (cookie_value.isEmpty()) bypass(mainUrl) else cookie_value
         val document = app.get(
             "$mainUrl/mobile/home?app=1",
@@ -87,80 +85,58 @@ open class DisneyStudioProvider(
         val id = selectFirst("a")?.attr("data-post") ?: attr("data-post")
 
         return newAnimeSearchResponse("", Id(id).toJson()) {
-            this.posterUrl = "https://imgcdn.kim/hs/v/$id.jpg"
+            posterUrl = "https://imgcdn.kim/hs/v/$id.jpg"
             posterHeaders = mapOf("Referer" to "$mainUrl/home")
         }
     }
 
-//     override suspend fun search(query: String): List<SearchResponse> {
-//        cookie_value = if (cookie_value.isEmpty()) bypass(mainUrl) else cookie_value
-//        val url = "$mainUrl/mobile/hs/search.php?s=$query&t=${APIHolder.unixTime}"
-//        val data = app.get(url, referer = "$mainUrl/home", cookies = buildCookies())
-//            .parsed<SearchData>()
-//
-//        return data.searchResult.map {
-//            newAnimeSearchResponse(it.t, Id(it.id).toJson()) {
-//                posterUrl = "https://imgcdn.kim/hs/v/${it.id}.jpg"
-//                posterHeaders = mapOf("Referer" to "$mainUrl/home")
-//            }
-//        }
-//    }
-
     override suspend fun load(url: String): LoadResponse? {
-        
         cookie_value = if (cookie_value.isEmpty()) bypass(mainUrl) else cookie_value
         val id = parseJson<Id>(url).id
         val data = app.get(
             "$mainUrl/mobile/hs/post.php?id=$id&t=${APIHolder.unixTime}",
-            headers,
+            headers = headers,
             referer = "$mainUrl/home",
             cookies = buildCookies()
         ).parsed<PostData>()
 
         val episodes = arrayListOf<Episode>()
-
         val title = data.title
         val castList = data.cast?.split(",")?.map { it.trim() } ?: emptyList()
-        val cast = castList.map {
-            ActorData(
-                Actor(it),
-            )
-        }
-        val genre = data.genre?.split(",")
-            ?.map { it.trim() }
-            ?.filter { it.isNotEmpty() }
+        val cast = castList.map { ActorData(Actor(it)) }
+        val genre = data.genre?.split(",")?.map { it.trim() }?.filter { it.isNotEmpty() }
 
         val rating = data.match?.replace("IMDb ", "")
-        val runTime = convertRuntimeToMinutes(data.runtime.toString())
+        val parsedRunTime = convertRuntimeToMinutes(data.runtime.toString())
 
-        val suggest = data.suggest?.map {
-            newAnimeSearchResponse("", Id(it.id).toJson()) {
-                this.posterUrl = "https://imgcdn.kim/hs/v/${it.id}.jpg"
+        val suggest = data.suggest?.map { item ->
+            newAnimeSearchResponse("", Id(item.id).toJson()) {
+                posterUrl = "https://imgcdn.kim/hs/v/${item.id}.jpg"
                 posterHeaders = mapOf("Referer" to "$mainUrl/home")
             }
         }
 
         if (data.episodes.first() == null) {
-            episodes.add(newEpisode(LoadData(title, id)) {
+            episodes.add(newEpisode(LoadData(title, id).toJson()) {
                 name = data.title
             })
         } else {
-            data.episodes.filterNotNull().mapTo(episodes) {
-                newEpisode(LoadData(title, it.id)) {
-                    this.name = it.t
-                    this.episode = it.ep.replace("E", "").toIntOrNull()
-                    this.season = it.s.replace("S", "").toIntOrNull()
-                    this.posterUrl = "https://imgcdn.kim/hsepimg/150/${it.id}.jpg"
-                    this.runTime = it.time.replace("m", "").toIntOrNull()
-                }
+            data.episodes.filterNotNull().forEach { item ->
+                episodes.add(newEpisode(LoadData(title, item.id).toJson()) {
+                    name = item.t
+                    episode = item.ep.replace("E", "").toIntOrNull()
+                    season = item.s.replace("S", "").toIntOrNull()
+                    posterUrl = "https://imgcdn.kim/hsepimg/150/${item.id}.jpg"
+                    runTime = item.time.replace("m", "").toIntOrNull()
+                })
             }
 
             if (data.nextPageShow == 1) {
-                episodes.addAll(getEpisodes(title, url, data.nextPageSeason!!, 2))
+                episodes.addAll(getEpisodes(title, id, data.nextPageSeason!!, 2))
             }
 
-            data.season?.dropLast(1)?.amap {
-                episodes.addAll(getEpisodes(title, url, it.id, 1))
+            data.season?.dropLast(1)?.amap { seasonItem ->
+                episodes.addAll(getEpisodes(title, id, seasonItem.id, 1))
             }
         }
 
@@ -174,10 +150,10 @@ open class DisneyStudioProvider(
             year = data.year.toIntOrNull()
             tags = genre
             actors = cast
-            this.score = Score.from10(rating)
-            this.duration = runTime
-            this.contentRating = data.ua
-            this.recommendations = suggest
+            score = Score.from10(rating)
+            duration = parsedRunTime
+            contentRating = data.ua
+            recommendations = suggest
         }
     }
 
@@ -189,18 +165,19 @@ open class DisneyStudioProvider(
         while (true) {
             val data = app.get(
                 "$mainUrl/mobile/hs/episodes.php?s=$sid&series=$eid&t=${APIHolder.unixTime}&page=$pg",
-                headers,
+                headers = headers,
                 referer = "$mainUrl/home",
                 cookies = buildCookies()
             ).parsed<EpisodesData>()
-            data.episodes?.mapTo(episodes) {
-                newEpisode(LoadData(title, it.id)) {
-                    name = it.t
-                    episode = it.ep.replace("E", "").toIntOrNull()
-                    season = it.s.replace("S", "").toIntOrNull()
-                    this.posterUrl = "https://imgcdn.kim/hsepimg/${it.id}.jpg"
-                    this.runTime = it.time.replace("m", "").toIntOrNull()
-                }
+            
+            data.episodes?.filterNotNull()?.forEach { item ->
+                episodes.add(newEpisode(LoadData(title, item.id).toJson()) {
+                    name = item.t
+                    episode = item.ep.replace("E", "").toIntOrNull()
+                    season = item.s.replace("S", "").toIntOrNull()
+                    posterUrl = "https://imgcdn.kim/hsepimg/${item.id}.jpg"
+                    runTime = item.time.replace("m", "").toIntOrNull()
+                })
             }
             if (data.nextPageShow == 0) break
             pg++
@@ -225,19 +202,13 @@ open class DisneyStudioProvider(
 
         callback.invoke(
             newExtractorLink(name, name, response.video_link, type = ExtractorLinkType.M3U8) {
-                this.referer = response.referer ?: apiBase
+                referer = response.referer ?: apiBase
             }
         )
 
         return true
     }
 }
-
-class MarvelProvider : DisneyStudioProvider("marvel", "Marvel")
-
-class StarWarsProvider : DisneyStudioProvider("starwars", "Star Wars")
-
-class PixarProvider : DisneyStudioProvider("pixar", "Pixar")
 
 data class Id(
     val id: String

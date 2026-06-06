@@ -2,65 +2,31 @@
 
 **Numbered Shortcode**: `0401`
 
-The Reflex Repository is an English Repository with the focus of providing English speaking plugins through this Repository. You can also make pull requests for me to add plugins from your Repository to my Repository.
+The Reflex Repository is an English Repository with the focus of providing English speaking plugins through this Repository. You can also make pull requests to contribute to the Repository, as well create issues with site suggestions.
+
+Keep in mind this is a hobby and will be updated when the maintainers and contributors have time. Thanks for understanding.
 
 
+## 📄 License
 
-**⚠️ This is currently under development, dont use it yet if you're not comfortable with constantly merging new changes**
+[![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)
 
-# `Cloudstream3 Plugin Repo Template`
+These extensions are **free software**: you can use, study, share, and modify them as you wish.
 
-Template for a [Cloudstream3](https://github.com/recloudstream) plugin repo
+They are distributed under the terms of the [GNU General Public License](https://www.gnu.org/licenses/gpl.html) version 3 or later, published by the Free Software Foundation.
 
-**⚠️ Make sure you check "Include all branches" when using this template**
+---
 
- 
-## Getting started with writing your first plugin
+## ⚖️ DMCA Disclaimer
 
-This template includes 1 example plugin.
+We hereby issue this notice to clarify that these extensions function similarly to a standard web browser by fetching video files from the internet.
 
-1. Open the root build.gradle.kts, read the comments and replace all the placeholders
-2. Familiarize yourself with the project structure. Most files are commented
-3. Build or deploy your first plugin using:
-   - Windows: `.\gradlew.bat ExampleProvider:make` or `.\gradlew.bat ExampleProvider:deployWithAdb`
-   - Linux & Mac: `./gradlew ExampleProvider:make` or `./gradlew ExampleProvider:deployWithAdb`
+- **No content is hosted by this repository or the Cloudstream 3 application.**
+- Any content accessed is hosted by third-party websites.
+- Users are solely responsible for their usage and must comply with their local laws.
 
+If you believe content is violating copyright laws, please contact the **actual file hosts**, **not** the developers of this repository or the Cloudstream 3 app.
 
-## Granting All Files Access on Newer Android Devices
+---
 
-For local plugin testing, you need to grant the app "All Files Access" on newer Android devices (Android 11 and above). Here’s how to do it:
-
-### Using ADB
-
-* `adb shell appops set --uid PACKAGE_NAME MANAGE_EXTERNAL_STORAGE allow`
-* Replace `PACKAGE_NAME` with the name of the package for the Cloudstream3 version you are using:
-   - debug: `com.lagradost.cloudstream3.prerelease.debug`
-   - prerelease: `com.lagradost.cloudstream3.prerelease`
-   - stable: `com.lagradost.cloudstream3`
-
-### Manually
-
-1. **Open Settings**: Go to your device’s Settings menu.
-
-2. **Navigate to Special Access**:
-   - Tap on "Apps & notifications" or "Apps".
-   - Select "Special app access" or "Special access".
-
-3. **Select All Files Access**:
-   - Tap on "All files access".
-   - It may be under the three vertical dots menu towards the top of the screen.
-
-4. **Grant Access to the App**: Find the app in the list and tap on it to toggle it, if it is not already enabled.
-
-6. **Restart the App**: Close and reopen the app to apply the changes.
-
-
-## License
-
-Everything in this repo is released into the public domain. You may use it however you want with no conditions whatsoever
-
-
-## Attribution
-
-This template as well as the gradle plugin and the whole plugin system is **heavily** based on [Aliucord](https://github.com/Aliucord).
-*Go use it, it's a great mobile discord client mod!*
+**Thank You for using the Reflex Repo!**

@@ -1,4 +1,4 @@
-﻿package com.reflex1337.reflexmirror
+package com.reflex1337.reflexmirror
 
 import android.content.Context
 import com.reflex1337.reflexmirror.entities.EpisodesData
@@ -50,7 +50,6 @@ class HotStarMirrorProvider : MainAPI() {
     )
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse? {
-        // Show star popup on first visit (shared across all reflexmirror plugins)
         
         cookie_value = if(cookie_value.isEmpty()) bypass(mainUrl) else cookie_value
         val cookies = mapOf(

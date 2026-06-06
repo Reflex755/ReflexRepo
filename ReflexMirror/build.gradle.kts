@@ -1,5 +1,5 @@
 // use an integer for version numbers
-version = 3
+version = 1
 
 android {
     buildFeatures {
@@ -33,7 +33,7 @@ cloudstream {
         "TvSeries"
     )
 
-    requiresResources = true
+    requiresResources = false
 
-    iconUrl = "https://raw.githubusercontent.com/Reflex755/ReflexRepo/refs/heads/master/ReflexMirror/icon.png"
+    iconUrl = "https://raw.githubusercontent.com/Reflex755/ReflexRepo/refs/heads/master/Logos/ReflexMirror-icon.png"
 }
