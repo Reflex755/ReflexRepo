@@ -1,0 +1,69 @@
+[
+  {
+    "iconUrl": "https://www.google.com/s2/favicons?domain=divicast.study&sz=64",
+    "fileHash": "sha256-260918fb7e4353e0f323ec0b92cec5436a80d136a12d055ad04b07e8db5540e7",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/Reflex755/ReflexRepo",
+    "fileSize": 36866,
+    "status": 1,
+    "language": "en",
+    "authors": [
+      "Reflex1337",
+      "ErrorCode26"
+    ],
+    "tvTypes": [
+      "Movie",
+      "TvSeries"
+    ],
+    "version": 1,
+    "internalName": "DiviCast",
+    "description": "Watch movies and TV series from DiviCast",
+    "url": "https://raw.githubusercontent.com/Reflex755/ReflexRepo/builds/DiviCast.cs3",
+    "name": "DiviCast"
+  },
+  {
+    "iconUrl": "https://www.google.com/s2/favicons?domain=libraryofladev.com&sz=%size%",
+    "jarFileSize": 157711,
+    "fileHash": "sha256-8772a17e50c8e7049707976a51b6a4c19f498ccc0efbc13f733e9ad56e459d69",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/Reflex755/ReflexRepo",
+    "fileSize": 39044,
+    "status": 1,
+    "language": "en",
+    "authors": [
+      "ErrorCode26",
+      "Reflex1337"
+    ],
+    "tvTypes": [
+      "Movie"
+    ],
+    "version": 3,
+    "internalName": "LibraryOfLadev",
+    "jarUrl": "https://raw.githubusercontent.com/Reflex755/ReflexRepo/builds/LibraryOfLadev.jar",
+    "description": "Library of Ladev - Neuro-sama stream transcript search with YouTube playback",
+    "url": "https://raw.githubusercontent.com/Reflex755/ReflexRepo/builds/LibraryOfLadev.cs3",
+    "name": "LibraryOfLadev",
+    "jarHash": "sha256-8fc13e3ff4ebe4e69fcd6fcfeb48b5d3757b95b2b6dc1d3bb138055b1afc87fc"
+  },
+  {
+    "iconUrl": "https://raw.githubusercontent.com/Reflex755/ReflexRepo/refs/heads/master/Logos/ReflexMirror-icon.png",
+    "fileHash": "sha256-60dfaa5f943c7ca97552990a3a6f5b5d66aefac5c63afb8a4da497de3e4f637a",
+    "apiVersion": 1,
+    "repositoryUrl": "https://github.com/Reflex755/ReflexRepo",
+    "fileSize": 63484,
+    "status": 1,
+    "language": "en",
+    "authors": [
+      "Reflex1337, NivinCNC"
+    ],
+    "tvTypes": [
+      "Movie",
+      "TvSeries"
+    ],
+    "version": 1,
+    "internalName": "ReflexMirror",
+    "description": "Netflix, PrimeVideo, Disney+ Hotstar Contents in Multiple Languages",
+    "url": "https://raw.githubusercontent.com/Reflex755/ReflexRepo/builds/ReflexMirror.cs3",
+    "name": "ReflexMirror"
+  }
+]
