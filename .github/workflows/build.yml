@@ -53,7 +53,14 @@ jobs:
 
           cp **/build/*.cs3 $GITHUB_WORKSPACE/builds || true
           cp **/build/*.jar $GITHUB_WORKSPACE/builds || true
-          cp build/plugins.json $GITHUB_WORKSPACE/builds/ || echo "No plugins.json found"
+          
+          # Filter ProviderTemplate out of plugins.json before saving it to builds
+          if [ -f build/plugins.json ]; then
+            echo "Filtering out ProviderTemplate from plugins.json..."
+            jq 'del(.[] | select(.internalName == "ProviderTemplate"))' build/plugins.json > $GITHUB_WORKSPACE/builds/plugins.json
+          else
+            echo "No plugins.json found"
+          fi
 
       - name: Push builds
         run: |
