@@ -1,28 +1,32 @@
-**⚠️ This is currently under development, dont use it yet if you're not comfortable with constantly merging new changes**
+**Shortcode**: `reflex1337`
 
-# `Cloudstream3 Plugin Repo Template`
+**Numbered Shortcode**: `0401`
 
-Template for a [Cloudstream3](https://github.com/recloudstream) plugin repo
+The Reflex Repository is an English Repository with the focus of providing English speaking plugins through this Repository. You can also make pull requests to contribute to the Repository, as well create issues with site suggestions.
 
-**⚠️ Make sure you check "Include all branches" when using this template**
-
- 
-## Getting started with writing your first plugin
-
-This template includes 1 example plugin.
-
-1. Open the root build.gradle.kts, read the comments and replace all the placeholders
-2. Familiarize yourself with the project structure. Most files are commented
-3. Build or deploy your first plugin using:
-   - Windows: `.\gradlew.bat ExampleProvider:make` or `.\gradlew.bat ExampleProvider:deployWithAdb`
-   - Linux & Mac: `./gradlew ExampleProvider:make` or `./gradlew ExampleProvider:deployWithAdb`
-
-## License
-
-Everything in this repo is released into the public domain. You may use it however you want with no conditions whatsoever
+Keep in mind this is a hobby and will be updated when the maintainers and contributors have time. Thanks for understanding.
 
 
-## Attribution
+## 📄 License
 
-This template as well as the gradle plugin and the whole plugin system is **heavily** based on [Aliucord](https://github.com/Aliucord).
-*Go use it, it's a great mobile discord client mod!*
+[![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)
+
+These extensions are **free software**: you can use, study, share, and modify them as you wish.
+
+They are distributed under the terms of the [GNU General Public License](https://www.gnu.org/licenses/gpl.html) version 3 or later, published by the Free Software Foundation.
+
+---
+
+## ⚖️ DMCA Disclaimer
+
+We hereby issue this notice to clarify that these extensions function similarly to a standard web browser by fetching video files from the internet.
+
+- **No content is hosted by this repository or the Cloudstream 3 application.**
+- Any content accessed is hosted by third-party websites.
+- Users are solely responsible for their usage and must comply with their local laws.
+
+If you believe content is violating copyright laws, please contact the **actual file hosts**, **not** the developers of this repository or the Cloudstream 3 app.
+
+---
+
+**Thank You for using the Reflex Repo!**
