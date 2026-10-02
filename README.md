@@ -29,4 +29,9 @@ If you believe content is violating copyright laws, please contact the **actual 
 
 ---
 
+## 🔗 Links
+[Official CloudStream repo](https://github.com/recloudstream/cloudstream) · [CloudStream Wiki](https://cloudstream.miraheze.org/wiki/Main_Page)
+
+---
+
 **Thank You for using the Reflex Repo!**
